@@ -1,11 +1,15 @@
 package projetoP201;
 
-public class Tarefa {
-    private String name;
+public abstract class Tarefa {
+    final private int id;
+    private String titulo;
+    private String descricao;
     private boolean state;
     
-    public Tarefa(String name) {
-        this.name = name;
+    public Tarefa(int id, String titulo, String descricao) {
+        this.id = id;
+        this.titulo = titulo;
+        this.descricao = descricao;
         this.state = false;
     }
     
@@ -13,15 +17,23 @@ public class Tarefa {
         return state;
     }
     
-    public String getName() {
-        return name;
+    public String getTitulo() {
+        return titulo;
+    }
+    
+    public String getDescricao() {
+        return descricao;
     }
     
     public void turnTrue() {
         state = true;
     }
     
-    public void changeName(String name) {
-        this.name = name;
+    public void changeTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    
+    public void changeDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

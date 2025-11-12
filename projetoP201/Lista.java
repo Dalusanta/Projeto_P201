@@ -8,8 +8,8 @@ public class Lista {
     public Lista() {
         this.taskList = new ArrayList<>();
     }
-    public void adicionar(String tarefa) {
-        taskList.add(new Tarefa(tarefa));
+    public void adicionar(String titulo, String descrivao) {
+        taskList.add(new Tarefa(taskList.size(), titulo, descricao));
     }
     
     private boolean withinList(String length) {
@@ -20,9 +20,9 @@ public class Lista {
         }
     }
     
-    public void mudar(String index, String newName) {
+    public void mudar(String index, String newTitulo) {
         if (withinList(index)) {
-            taskList.get(Integer.parseInt(index)-1).changeName(newName);
+            taskList.get(Integer.parseInt(index)-1).changeTitulo(newTitulo);
         }
     }
     
@@ -59,6 +59,17 @@ public class Lista {
         return false;
     }
     
+    public void showTituloFromTheList() {
+        for(int i = 0; i < taskList.size(); i++) {
+            System.out.println(i+1+". "+taskList.get(i).getTitulo()+" ("taskList.get(i).getState()+")");
+        }
+    }
+    
+    public void showDescricaoDoTitulo(int id) {
+        System.out.println(taskList.get(id).getDescricao());
+    }
+    
+    /*
     public void showList(String escolha) {
         switch (escolha) {
             case "1":
@@ -91,5 +102,6 @@ public class Lista {
             default:
                 System.out.println("Opção inválida");
         }
-    }
+    
+    }*/
 }
