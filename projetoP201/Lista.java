@@ -8,33 +8,39 @@ public class Lista {
     public Lista() {
         this.taskList = new ArrayList<>();
     }
-    public void adicionar(String titulo, String descrivao) {
+    public void adicionar(String titulo, String descricao) {
         taskList.add(new Tarefa(taskList.size(), titulo, descricao));
     }
     
     private boolean withinList(String length) {
-        if (Integer.parseInt(length) > 0 && Integer.parseInt(length) <= taskList.size()) {
+        if (Integer.parseInt(length) >= 0 && Integer.parseInt(length) < taskList.size()) {
             return true;
         } else {
             return false;
         }
     }
     
-    public void mudar(String index, String newTitulo) {
+    public void mudarTitulo(String index, String newTitulo) {
         if (withinList(index)) {
-            taskList.get(Integer.parseInt(index)-1).changeTitulo(newTitulo);
+            taskList.get(Integer.parseInt(index)).changeTitulo(newTitulo);
+        }
+    }
+    
+    public void mudarDesccricao(String index, String newDescricao) {
+        if (withinList(index)) {
+            taskList.get(Integer.parseInt(index)).changeDescricao(newDescricao);
         }
     }
     
     public void remover(String index) {
         if (withinList(index)) {
-            taskList.remove(Integer.parseInt(index)-1);
+            taskList.remove(Integer.parseInt(index));
         }
     }
     
     public void concluir(String index) {
         if (withinList(index)) {
-            taskList.get(Integer.parseInt(index)-1).turnTrue();
+            taskList.get(Integer.parseInt(index)).turnTrue();
         }
     }
     
@@ -61,7 +67,7 @@ public class Lista {
     
     public void showTituloFromTheList() {
         for(int i = 0; i < taskList.size(); i++) {
-            System.out.println(i+1+". "+taskList.get(i).getTitulo()+" ("taskList.get(i).getState()+")");
+            System.out.println(taskList.get(i).getId()+". "+taskList.get(i).getTitulo()+" ("+taskList.get(i).getState()+")");
         }
     }
     

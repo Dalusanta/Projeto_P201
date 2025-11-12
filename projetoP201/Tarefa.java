@@ -1,6 +1,6 @@
 package projetoP201;
 
-public abstract class Tarefa {
+public class Tarefa {
     final private int id;
     private String titulo;
     private String descricao;
@@ -11,6 +11,10 @@ public abstract class Tarefa {
         this.titulo = titulo;
         this.descricao = descricao;
         this.state = false;
+    }
+    
+    public int getId() {
+        return id;
     }
     
     public boolean getState() {
