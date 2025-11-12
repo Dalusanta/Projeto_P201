@@ -3,13 +3,16 @@ package projetoP201;
 import java.util.ArrayList;
 
 public class Lista {
-    static ArrayList<Tarefa> taskList = new ArrayList<>();
+    ArrayList<Tarefa> taskList;
     
-    public static void adicionar(String tarefa) {
+    public Lista() {
+        this.taskList = new ArrayList<>();
+    }
+    public void adicionar(String tarefa) {
         taskList.add(new Tarefa(tarefa));
     }
     
-    private static boolean withinList(String length) {
+    private boolean withinList(String length) {
         if (Integer.parseInt(length) > 0 && Integer.parseInt(length) <= taskList.size()) {
             return true;
         } else {
@@ -17,29 +20,29 @@ public class Lista {
         }
     }
     
-    public static void mudar(String index, String newName) {
+    public void mudar(String index, String newName) {
         if (withinList(index)) {
             taskList.get(Integer.parseInt(index)-1).changeName(newName);
         }
     }
     
-    public static void remover(String index) {
+    public void remover(String index) {
         if (withinList(index)) {
             taskList.remove(Integer.parseInt(index)-1);
         }
     }
     
-    public static void concluir(String index) {
+    public void concluir(String index) {
         if (withinList(index)) {
             taskList.get(Integer.parseInt(index)-1).turnTrue();
         }
     }
     
-    public static boolean emptyList() {
+    public boolean emptyList() {
         return taskList.isEmpty();
     }
     
-    public static boolean hasSpecificTasks(int tipo) {
+    public boolean hasSpecificTasks(int tipo) {
         if (tipo == 1) {
             for (int i = 0; i < taskList.size(); i++) {
                 if (taskList.get(i).getState() == false) {
@@ -56,7 +59,7 @@ public class Lista {
         return false;
     }
     
-    public static void showList(String escolha) {
+    public void showList(String escolha) {
         switch (escolha) {
             case "1":
                 for (int i = 0; i < taskList.size(); i++) {
@@ -86,7 +89,7 @@ public class Lista {
                 }
                 break;
             default:
-                System.out.println("Nada foi selecionado");
+                System.out.println("Opção inválida");
         }
     }
 }
