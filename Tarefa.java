@@ -3,7 +3,7 @@ public abstract class Tarefa {
     protected String titulo;
     protected String descricao;
     protected boolean concluido;
-    protected boolean tipo; // False = prazo e true = prioridade
+    protected boolean tipo;
 
     public Tarefa(String titulo, String descricao) {
         this.titulo = titulo;
@@ -11,18 +11,13 @@ public abstract class Tarefa {
         this.concluido = false; 
     }
 
-    public int getId() { 
-        return id; 
-    }
-    public String getTitulo() {
-        return titulo; 
-    }
-    public String getDescricao() { 
-        return descricao; 
-    }
-    public boolean isConcluido() {
-        return concluido;
-    }
+    public int getId() { return id; }
+    public String getTitulo() { return titulo; }
+    public String getDescricao() { return descricao; }
+    public boolean isConcluido() { return concluido; }
+    
+    public boolean isPrioridade() { return tipo; } 
+
     public String getTipoStr() {
         return tipo ? "Prioridade" : "Prazo";
     }
