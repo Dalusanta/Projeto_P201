@@ -1,11 +1,19 @@
 public class TarefaPrazo extends Tarefa {
     
-    protected String dataPrazo; 
+    private String dataPrazo; 
 
     public TarefaPrazo(String titulo, String descricao, String dataPrazo) {
         super(titulo, descricao); 
         this.tipo = false; 
         this.dataPrazo = dataPrazo;
+    }
+
+    public void setDataPrazo(String dataPrazo) {
+        this.dataPrazo = dataPrazo;
+    }
+    
+    public String getDataPrazo() {
+        return dataPrazo;
     }
 
     @Override
